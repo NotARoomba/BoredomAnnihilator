@@ -1,6 +1,14 @@
 import discord
 import os
 from dotenv import load_dotenv
+from keep_alive import keep_alive
+import asyncpraw
+from discord.ext import commands
+
+bot = commands.Bot(
+    command_prefix="s!",
+    case_insensitive=True
+)
 
 load_dotenv()
 
@@ -20,5 +28,15 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
+
+
+@bot.event #First Command, CAn be used as a simple command reference.
+async def test(ctx):
+  await ctx.send("Hello World")
+
+
+
+
+
 
 client.run(os.getenv('TOKEN'))
