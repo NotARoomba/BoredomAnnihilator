@@ -6,7 +6,6 @@ import Paginator
 
 
 class Utility(commands.Cog):
-    group = "Utility"
     def __init__(self, bot):
         self.bot = bot
         self.description = "A bunch of useful utility commands!"
