@@ -16,6 +16,17 @@ class Utility(commands.Cog):
     async def quote(self, ctx):
         json = requests.get("https://api.quotable.io/random").json()
         await ctx.send(f'"{json["content"]}" -{json["author"]}')
+    @commands.command(description="*Holy Music stops...*")
+    async def summon(self, ctx, args: discord.Member = None):
+        if args:
+            await ctx.send(f'Summoning {args.mention}...')
+            await ctx.send(f'{args.mention}')
+            await ctx.send(f'{args.mention}')
+            await ctx.send(f'{args.mention}')
+            await ctx.send(f'{args.mention}')
+            await ctx.send(f'{args.mention}')
+        else:
+            await ctx.reply("You need to mention a valid user!")
     @commands.command(description="Shows my commands!")
     async def help(self, ctx):
         embeds = []
