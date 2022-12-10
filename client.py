@@ -1,4 +1,5 @@
 import discord
+from discord import app_commands
 from discord.ext import commands
 from cogs.utilities import *
 
@@ -6,6 +7,7 @@ class SunShine(commands.Bot):
     bot = commands
     async def on_ready(self):
         await self.add_cog(Utility(self))
+        await self.tree.sync()
         print(f'{self.user} is online!')
 
     async def on_message(self, message):
