@@ -21,9 +21,9 @@ class Utility(commands.Cog):
         embeds = []
         for i in self.bot.cogs:
             cog = self.bot.get_cog(i)
-            embed = discord.embeds.Embed(color=discord.Colour.yellow(), title=f'{i} Commands:')
+            embed = discord.embeds.Embed(color=discord.Colour.yellow(), title=f'{i} Commands:', description="")
             for c in cog.get_commands():
-                print(c)
-            embeds.push_back(embed)
+                embed.description+=f'{c}: {c.description}\n'
+            embeds.append(embed)
         await Paginator.Simple().start(ctx, pages=embeds)
 

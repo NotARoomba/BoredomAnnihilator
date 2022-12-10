@@ -5,7 +5,7 @@ from cogs.utilities import *
 class SunShine(commands.Bot):
     bot = commands
     async def on_ready(self):
-        await self.add_cog(Utilities(self))
+        await self.add_cog(Utility(self))
         print(f'{self.user} is online!')
 
     async def on_message(self, message):
